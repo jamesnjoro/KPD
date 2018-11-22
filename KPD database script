@@ -1,0 +1,42 @@
+CREATE DATABASE `KPD` /*!40100 DEFAULT CHARACTER SET latin1 */;
+
+CREATE TABLE `KPD`.`arrests` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `User_ID` int(11) NOT NULL,
+  `Name` varchar(500) NOT NULL,
+  `Age` int(11) NOT NULL,
+  `PhoneNumber` int(11) DEFAULT NULL,
+  `EmergencyContact` int(11) DEFAULT NULL,
+  `NationalId` int(11) DEFAULT NULL,
+  `Description` varchar(45) NOT NULL,
+  `Timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `KPD`.`report` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `User_ID` int(11) NOT NULL,
+  `NationalId` int(11) DEFAULT NULL,
+  `Name` varchar(45) NOT NULL,
+  `Description` varchar(500) NOT NULL,
+  `Age` int(11) NOT NULL,
+  `Timestamp` timestamp NULL DEFAULT NULL,
+  `PhoneNumber` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `KPD`.`user` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(45) NOT NULL,
+  `PhoneNumber` int(11) DEFAULT NULL,
+  `Email` varchar(45) NOT NULL,
+  `Usertype` varchar(45) NOT NULL,
+  `Gender` varchar(45) NOT NULL,
+  `Password` varchar(45) NOT NULL,
+  PRIMARY KEY (`ID`),
+  UNIQUE KEY `ID_UNIQUE` (`ID`),
+  UNIQUE KEY `Email_UNIQUE` (`Email`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+
+
+
